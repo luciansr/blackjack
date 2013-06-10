@@ -1,6 +1,6 @@
-package package1;
+package model;
 
-public class Agent implements Player {
+public class Dealer implements Player {
 
 	@Override
 	public void play() {

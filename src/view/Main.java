@@ -1,4 +1,4 @@
-package package1;
+package view;
 
 public class Main {
 	public static void main(String[] args) {
