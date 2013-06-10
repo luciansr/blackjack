@@ -1,9 +1,12 @@
 package model;
 
+import enums.Acao;
+
 public class Jogador implements Player {
 
 	@Override
-	public void play() {
+	public Acao play() {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
