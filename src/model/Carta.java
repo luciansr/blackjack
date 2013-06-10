@@ -1,21 +1,22 @@
 package model;
 
 import enums.Naipe;
+import enums.TipoDeCarta;
 
 public class Carta {
 	
 	int valor;
-	private String carta;
+	TipoDeCarta tipo;
 	Naipe naipe;
 	
-	public Carta(String carta, int valor, Naipe naipe) {
-		this.carta = carta;
+	public Carta(TipoDeCarta tipo, Naipe naipe, int valor) {
+		this.tipo = tipo;
 		this.valor = valor;
 		this.naipe = naipe;
 	}
 	
-	public String getTipo() {
-		return carta;
+	public TipoDeCarta getTipo() {
+		return tipo;
 	}
 	
 	public int getValor() {
