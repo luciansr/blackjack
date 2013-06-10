@@ -5,9 +5,9 @@ import enums.TipoDeCarta;
 
 public class Carta {
 	
-	int valor;
-	TipoDeCarta tipo;
-	Naipe naipe;
+	private int valor;
+	private TipoDeCarta tipo;
+	private Naipe naipe;
 	
 	public Carta(TipoDeCarta tipo, Naipe naipe, int valor) {
 		this.tipo = tipo;
