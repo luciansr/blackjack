@@ -19,6 +19,8 @@ public abstract class Player {
 	public Player(String nome, int dinheiro) {
 		this.dinheiro = dinheiro;
 		this.nome = nome;
+		
+		cartasNaMao = new ArrayList<Carta>();
 	}
 	
 	public int getDinheiro() {
@@ -41,5 +43,7 @@ public abstract class Player {
 		return nome;
 	}
 	
-	
+	public void recebeCarta(Carta carta) {
+		cartasNaMao.add(carta);
+	}
 }
