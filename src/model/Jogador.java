@@ -2,7 +2,12 @@ package model;
 
 import enums.Acao;
 
-public class Jogador implements Player {
+public class Jogador extends Player {
+
+	public Jogador(String nome, int dinheiro) {
+		super(nome, dinheiro);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public Acao play() {
