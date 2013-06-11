@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.Agente;
 import model.Croupier;
+import model.Mesa;
 import model.Player;
 
 import controller.BlackJackController;
@@ -13,11 +14,13 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Croupier croupier = Croupier.getInstance("Croupier", DINHEIRO, 2);
+		Mesa mesa = Mesa.getInstance();
+		
 		ArrayList<Player> listaJogadores = new ArrayList<Player>();
 		
 		listaJogadores.add(new Agente("AgenteDesenteligente", DINHEIRO));
 		
-		BlackJackController BJController = BlackJackController.getInstance(croupier, listaJogadores);
+		BlackJackController BJController = BlackJackController.getInstance(mesa, croupier, listaJogadores);
 		
 		BJController.start();
 		

@@ -21,8 +21,17 @@ public final class Mesa {
     public int getDinheiroApostaAtual() {
 		return dinheiroApostaAtual;
 	}
+    
+    public void adicionarAposta(int quantidade) {
+    	dinheiroApostaAtual += quantidade;
+	}
 
     public static synchronized Mesa getInstance(){
           return INSTANCE;
     }
+
+	public void pagaMetade(int quantidade) {
+		dinheiroApostaAtual -= quantidade/2;
+		
+	}
 }

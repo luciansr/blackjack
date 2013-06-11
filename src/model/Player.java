@@ -13,6 +13,7 @@ public abstract class Player {
 	
 	ArrayList<Carta> cartasNaMao;
 	
+	private int apostaAtual = 0;
 	private int dinheiro;
 	private String nome;
 	
@@ -43,7 +44,23 @@ public abstract class Player {
 		return nome;
 	}
 	
+	public int getApostaAtual() {
+		return apostaAtual;
+	}
+	
+	public void apostaMais(int quantidade, Mesa mesa) {
+		apostaAtual += quantidade;
+		mesa.adicionarAposta(quantidade);
+
+	}
+	
 	public void recebeCarta(Carta carta) {
 		cartasNaMao.add(carta);
+	}
+
+	public void pagaMetade(Mesa mesa) {
+		dinheiro -= apostaAtual/2;
+		mesa.pagaMetade(apostaAtual);
+		
 	}
 }

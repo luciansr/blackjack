@@ -11,19 +11,22 @@ public final class BlackJackController {
 	private static BlackJackController INSTANCE = null;
 	
 	private Croupier croupier;
+	private Mesa mesa;
 	private ArrayList<Player> listaJogadores;
 	
 	Scanner in = new Scanner(System.in);
 	
-	private BlackJackController(Croupier croupier, ArrayList<Player> listaJogadores) {
+	private BlackJackController(Mesa mesa, Croupier croupier, ArrayList<Player> listaJogadores) {
 		this.listaJogadores = listaJogadores;
+		
+		this.mesa = mesa;
 		
 		this.croupier = croupier; 
 	}
 	
-    public static synchronized BlackJackController getInstance(Croupier croupier, ArrayList<Player> listaJogadores){
+    public static synchronized BlackJackController getInstance(Mesa mesa, Croupier croupier, ArrayList<Player> listaJogadores){
         if (INSTANCE == null) {
-        	INSTANCE = new BlackJackController(croupier, listaJogadores);
+        	INSTANCE = new BlackJackController(mesa, croupier, listaJogadores);
         	return INSTANCE;
         }
         
@@ -61,8 +64,7 @@ public final class BlackJackController {
 	}
 	
 	private void pagaMetade(Player player) {
-		// TODO Auto-generated method stub
-
+		player.pagaMetade(mesa);
 	}
 	
 	private void trataAcoes(Player player, Acao acao) {
