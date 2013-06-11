@@ -13,26 +13,21 @@ import model.*;
 public final class BlackJackController {
 	private static BlackJackController INSTANCE = null;
 	
+	private Croupier croupier;
 	private ArrayList<Player> listaJogadores;
-	private int numeroBaralhos; 
-	private ArrayList<Carta> cartasDosBaralhos;
 	
 	Scanner in = new Scanner(System.in);
 	
-	
-	
-	private BlackJackController(ArrayList<Player> listaJogadores, int numeroBaralhos) {
+	private BlackJackController(Croupier croupier, ArrayList<Player> listaJogadores) {
 		this.listaJogadores = listaJogadores;
-		this.numeroBaralhos = numeroBaralhos;
 		
-		cartasDosBaralhos = new ArrayList<Carta>();
 		
-		iniciaCartas();
+		this.croupier = croupier; 
 	}
 	
-    public static synchronized BlackJackController getInstance(ArrayList<Player> listaJogadores, int numeroBaralhos){
+    public static synchronized BlackJackController getInstance(Croupier croupier, ArrayList<Player> listaJogadores){
         if (INSTANCE == null) {
-        	INSTANCE = new BlackJackController(listaJogadores, numeroBaralhos);
+        	INSTANCE = new BlackJackController(croupier, listaJogadores);
         	return INSTANCE;
         }
         
@@ -50,22 +45,6 @@ public final class BlackJackController {
 			}
 		}
 	}
-	
-	private void iniciaCartas() {
-		//inicia a lista com X baralhos
-		for(int i = 0; i < numeroBaralhos; i++) {
-			for(TipoDeCarta tipo : TipoDeCarta.values()) {
-				for(Naipe naipe : Naipe.values()) {
-					cartasDosBaralhos.add(new Carta(tipo, naipe));
-				}
-			}
-		}
-		
-		//embaralha
-		Collections.shuffle(cartasDosBaralhos);
-		Collections.shuffle(cartasDosBaralhos);
-		Collections.shuffle(cartasDosBaralhos);
-	}
 
 	private void mostraJogo() {
 		for (Player jogador : listaJogadores) {
@@ -76,10 +55,8 @@ public final class BlackJackController {
 	}
 	
 	private void daCartaPara(Player player){
-		if (cartasDosBaralhos.size() > 0) player.recebeCarta(cartasDosBaralhos.remove(0));
+		if (croupier.temCartas()) player.recebeCarta(croupier.daCarta());
 		else cartasAcabaram();
-		
-		
 	}
 	
 	private void cartasAcabaram() {
