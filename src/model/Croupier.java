@@ -3,7 +3,6 @@ package model;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import controller.BlackJackController;
 import enums.Acao;
 import enums.Naipe;
 import enums.TipoDeCarta;

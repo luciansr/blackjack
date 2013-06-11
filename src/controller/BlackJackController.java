@@ -1,12 +1,9 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 import enums.Acao;
-import enums.Naipe;
-import enums.TipoDeCarta;
 
 import model.*;
 
@@ -20,7 +17,6 @@ public final class BlackJackController {
 	
 	private BlackJackController(Croupier croupier, ArrayList<Player> listaJogadores) {
 		this.listaJogadores = listaJogadores;
-		
 		
 		this.croupier = croupier; 
 	}
