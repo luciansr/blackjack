@@ -12,4 +12,26 @@ public enum TipoDeCarta {
 	private TipoDeCarta(int valor) {
 		this.valor = valor;
 	}
+	
+	@Override
+	public String toString() {
+		switch (this) {
+		case REI: 		return "Rei";
+		case RAINHA: 	return "Rainha";
+		case VALETE: 	return "Valete";
+		case NOVE: 		return "Nove";
+		case OITO:	 	return "Oito";
+		case SETE: 		return "Sete";
+		case SEIS: 		return "Seis";
+		case CINCO: 	return "Cinco";
+		case QUATRO: 	return "Quatro";
+		case TRES: 		return "Três";
+		case DOIS: 		return "Dois";
+		case AS: 		return "Ás";
+
+		default: 		return null;
+			
+		}
+		
+	}
 }

@@ -13,13 +13,17 @@ public final class Croupier extends Player {
 	private ArrayList<Carta> cartasDosBaralhos;
 	private int numeroBaralhos;
 
-	public Croupier(String nome, int dinheiro, int numeroBaralhos) {
+	private Croupier(String nome, int dinheiro, int numeroBaralhos) {
 		super(nome, dinheiro);
 		
 		this.numeroBaralhos = numeroBaralhos;
 		
 		cartasDosBaralhos = new ArrayList<Carta>();
 		iniciaCartas();
+	}
+	
+	public ArrayList<Carta> getBaralho () {
+		return cartasDosBaralhos;
 	}
 	
 	private void iniciaCartas() {
@@ -33,9 +37,9 @@ public final class Croupier extends Player {
 		}
 		
 		//embaralha
-		Collections.shuffle(cartasDosBaralhos);
-		Collections.shuffle(cartasDosBaralhos);
-		Collections.shuffle(cartasDosBaralhos);
+		//Collections.shuffle(cartasDosBaralhos);
+//		Collections.shuffle(cartasDosBaralhos);
+//		Collections.shuffle(cartasDosBaralhos);
 	}
 
 	public static synchronized Croupier getInstance(String nome, int dinheiro, int numeroBaralhos){
