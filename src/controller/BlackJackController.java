@@ -54,7 +54,7 @@ public final class BlackJackController {
 	}
 	
 	private void daCartaPara(Player player){
-		if (croupier.temCartas()) player.recebeCarta(croupier.daCarta());
+		if (croupier.temCartas()) player.hit(croupier.daCarta());
 		else cartasAcabaram();
 	}
 	
@@ -64,7 +64,7 @@ public final class BlackJackController {
 	}
 	
 	private void pagaMetade(Player player) {
-		player.pagaMetade(mesa);
+		player.surrender(mesa);
 	}
 	
 	private void trataAcoes(Player player, Acao acao) {

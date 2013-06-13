@@ -76,4 +76,5 @@ public abstract class Player {
 		mesa.pagaMetade(apostaAtual);
 		
 	}
+
 }
