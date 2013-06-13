@@ -1,11 +1,10 @@
-package controller;
+package main.java.controller;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import enums.Acao;
-
-import model.*;
+import main.java.model.Croupier;
+import main.java.model.Player;
 
 public final class BlackJackController {
 	private static BlackJackController INSTANCE = null;

@@ -1,11 +1,12 @@
-package model;
+package main.java.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import enums.Acao;
-import enums.Naipe;
-import enums.TipoDeCarta;
+import main.java.enums.Acao;
+import main.java.enums.Naipe;
+import main.java.enums.TipoDeCarta;
+
 
 public final class Croupier extends Player {
 	private static Croupier INSTANCE = null;

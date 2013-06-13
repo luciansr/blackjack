@@ -1,4 +1,4 @@
-package enums;
+package main.java.enums;
 
 public enum Naipe {
 	OURO, PAUS, ESPADA, COPAS;

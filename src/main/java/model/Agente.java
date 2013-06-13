@@ -1,6 +1,6 @@
-package model;
+package main.java.model;
 
-import enums.Acao;
+import main.java.enums.Acao;
 
 public class Agente extends Player {
 

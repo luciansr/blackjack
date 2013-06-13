@@ -1,7 +1,7 @@
-package model;
+package main.java.model;
 
-import enums.Naipe;
-import enums.TipoDeCarta;
+import main.java.enums.Naipe;
+import main.java.enums.TipoDeCarta;
 
 public class Carta {
 	

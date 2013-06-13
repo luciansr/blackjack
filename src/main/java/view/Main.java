@@ -1,15 +1,15 @@
-package view;
+package main.java.view;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import model.Agente;
-import model.Carta;
-import model.Croupier;
-import model.Player;
+import main.java.controller.BlackJackController;
+import main.java.model.Agente;
+import main.java.model.Carta;
+import main.java.model.Croupier;
+import main.java.model.Player;
 
-import controller.BlackJackController;
 
 public class Main {
 	private static final int DINHEIRO = 1000;
@@ -24,7 +24,7 @@ public class Main {
 		
 		BlackJackController BJController = BlackJackController.getInstance(croupier, listaJogadores);
 		
-		BJController.start();
+		//BJController.start();
 		
 	}
 }

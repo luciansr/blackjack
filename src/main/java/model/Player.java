@@ -1,8 +1,9 @@
-package model;
+package main.java.model;
 
 import java.util.ArrayList;
 
-import enums.Acao;
+import main.java.enums.Acao;
+
 
 /**
  * Qualquer uma das classes que podem jogar, devem herdar de Player. 
