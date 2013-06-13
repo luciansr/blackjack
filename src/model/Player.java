@@ -14,6 +14,8 @@ public abstract class Player {
 	ArrayList<Carta> cartasNaMao;
 	
 	private int apostaAtual = 0;
+
+
 	private int dinheiro;
 	private String nome;
 	
@@ -44,21 +46,32 @@ public abstract class Player {
 		return nome;
 	}
 	
+	
 	public int getApostaAtual() {
 		return apostaAtual;
 	}
 	
-	public void apostaMais(int quantidade, Mesa mesa) {
-		apostaAtual += quantidade;
-		mesa.adicionarAposta(quantidade);
+	public void setApostaAtual(int apostaAtual) {
+		this.apostaAtual = apostaAtual;
+	}
+
+	public void doubleDown(Mesa mesa) {
+		mesa.adicionarAposta(apostaAtual);
+		apostaAtual += apostaAtual;
+		
 
 	}
 	
-	public void recebeCarta(Carta carta) {
+	public void hit(Carta carta) {
 		cartasNaMao.add(carta);
+		
+	}
+	
+	public void stand(){
+		
 	}
 
-	public void pagaMetade(Mesa mesa) {
+	public void surrender(Mesa mesa) {
 		dinheiro -= apostaAtual/2;
 		mesa.pagaMetade(apostaAtual);
 		
