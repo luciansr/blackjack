@@ -26,6 +26,8 @@ public class Main {
 		BlackJackController BJController = BlackJackController.getInstance(mesa, croupier, listaJogadores);
 		
 		BJController.start();
+		
+		//augusto noob, teste
 			
 	}
 }
