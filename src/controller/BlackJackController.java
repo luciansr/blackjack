@@ -11,22 +11,22 @@ public final class BlackJackController {
 	private static BlackJackController INSTANCE = null;
 	
 	private Croupier croupier;
-	private Mesa mesa;
+
 	private ArrayList<Player> listaJogadores;
 	
 	Scanner in = new Scanner(System.in);
 	
-	private BlackJackController(Mesa mesa, Croupier croupier, ArrayList<Player> listaJogadores) {
+	private BlackJackController( Croupier croupier, ArrayList<Player> listaJogadores) {
 		this.listaJogadores = listaJogadores;
 		
-		this.mesa = mesa;
+
 		
 		this.croupier = croupier; 
 	}
 	
-    public static synchronized BlackJackController getInstance(Mesa mesa, Croupier croupier, ArrayList<Player> listaJogadores){
+    public static synchronized BlackJackController getInstance(Croupier croupier, ArrayList<Player> listaJogadores){
         if (INSTANCE == null) {
-        	INSTANCE = new BlackJackController(mesa, croupier, listaJogadores);
+        	INSTANCE = new BlackJackController(croupier, listaJogadores);
         	return INSTANCE;
         }
         
@@ -40,7 +40,7 @@ public final class BlackJackController {
 				mostraJogo();
 				
 				
-				trataAcoes(player, player.play());
+
 			}
 		}
 	}
@@ -62,29 +62,7 @@ public final class BlackJackController {
 		// TODO tratar quando não existirem mais cartas, mostrar na tela erro, ou na interface
 
 	}
-	
-	private void pagaMetade(Player player) {
-		player.surrender(mesa);
-	}
-	
-	private void trataAcoes(Player player, Acao acao) {
-		switch (acao) {
-			case HIT:
-				daCartaPara(player);
-				break;
-			case DOUBLEDOWN:
-				daCartaPara(player);
-				break;
-			case STAND:
-				break;
-			case SURRENDER:
-				pagaMetade(player);
-				listaJogadores.remove(player); //TODO esta correto isso?
-				break;
-			default:
-				break;
-		}
 
-	}
+	
 
 }

@@ -55,8 +55,7 @@ public abstract class Player {
 		this.apostaAtual = apostaAtual;
 	}
 
-	public void doubleDown(Mesa mesa) {
-		mesa.adicionarAposta(apostaAtual);
+	public void doubleDown() {
 		apostaAtual += apostaAtual;
 		
 
@@ -68,13 +67,12 @@ public abstract class Player {
 	}
 	
 	public void stand(){
-		
+		//TODO
 	}
 
-	public void surrender(Mesa mesa) {
+	public void surrender() {
 		dinheiro -= apostaAtual/2;
-		mesa.pagaMetade(apostaAtual);
-		
+		//TODO falar que a rodada acabou
 	}
 
 }
