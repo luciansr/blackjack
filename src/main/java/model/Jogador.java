@@ -1,6 +1,5 @@
 package main.java.model;
 
-import main.java.enums.Acao;
 
 public class Jogador extends Player {
 
@@ -9,11 +8,5 @@ public class Jogador extends Player {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public Acao play() {
-		return null;
-		// TODO Auto-generated method stub
-		
-	}
 
 }

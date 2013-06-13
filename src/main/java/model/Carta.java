@@ -16,12 +16,20 @@ public class Carta {
 	public TipoDeCarta getTipo() {
 		return tipo;
 	}
-	
+	/**
+	 * Retorna o valor da carta no BlackJack 
+	 * @return inteiro
+	 */
 	public int getValor() {
 		return tipo.getValor();
 	}
 
 	public Naipe getNaipe() {
 		return naipe;
+	}
+	
+	@Override
+	public String toString(){
+		return getTipo().toString() + " "+ getNaipe();
 	}
 }
