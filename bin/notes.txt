@@ -1,0 +1,1 @@
+enums só servem para serem comparados, no nosso projeto.
