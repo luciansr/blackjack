@@ -1,11 +1,9 @@
-package main.java.model;
-
+package model;
 import java.util.Collections;
 import java.util.Stack;
 
-import main.java.enums.Naipe;
-import main.java.enums.TipoDeCarta;
-
+import enums.Naipe;
+import enums.TipoDeCarta;
 
 public final class Croupier extends Player {
 	private static Croupier INSTANCE = null;
