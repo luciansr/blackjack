@@ -1,3 +1,4 @@
+package test.java.blackjack;
 //package view;
 //
 //import junit.framework.Test;

@@ -1,11 +1,12 @@
-package main.java.controller;
+package controller;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import main.java.model.Croupier;
-import main.java.model.Player;
-import main.java.view.BlackJackView;
+import view.BlackJackView;
+
+import model.Croupier;
+import model.Player;
 
 public final class BlackJackController {
 	private static BlackJackController INSTANCE = null;
