@@ -5,27 +5,30 @@ import java.util.Scanner;
 
 import main.java.model.Croupier;
 import main.java.model.Player;
+import main.java.view.BlackJackView;
 
 public final class BlackJackController {
 	private static BlackJackController INSTANCE = null;
 	
+	private BlackJackView view;
 	private Croupier croupier;
 
 	private ArrayList<Player> listaJogadores;
 	
+	private	int numeroDeCartasIniciais = 2;
 	Scanner in = new Scanner(System.in);
 	
-	private BlackJackController( Croupier croupier, ArrayList<Player> listaJogadores) {
+	private BlackJackController( Croupier croupier, ArrayList<Player> listaJogadores, BlackJackView view) {
 		this.listaJogadores = listaJogadores;
-		
+		this.view = view;
 
 		
 		this.croupier = croupier; 
 	}
 	
-    public static synchronized BlackJackController getInstance(Croupier croupier, ArrayList<Player> listaJogadores){
+    public static synchronized BlackJackController getInstance(Croupier croupier, ArrayList<Player> listaJogadores, BlackJackView view){
         if (INSTANCE == null) {
-        	INSTANCE = new BlackJackController(croupier, listaJogadores);
+        	INSTANCE = new BlackJackController(croupier, listaJogadores, view);
         	return INSTANCE;
         }
         
@@ -33,34 +36,45 @@ public final class BlackJackController {
     }
 	
 	public void start() {
-		while(true) {
-			
-			for (Player player : listaJogadores) {
-				mostraJogo();
-				
-				
+		while(croupier.getBaralho().size() != 0 ){ //TODO, MODIFICAR QUANDO ACABA O JOGO
 
+			//RECEBE AS CARTAS NO COMEÇO DE CADA RODADA
+			for(int i = 0; i < numeroDeCartasIniciais ; i++){
+				for (Player player : listaJogadores) {
+					if(player.getDinheiro() > 0){
+						player.recebeCarta(croupier);
+						//player.mostraJogo();
+					}
+				}
+			}
+			for(Player player : listaJogadores){
+				//player.mostraJogo();
+				if(player.getDinheiro() > 0){
+					//PEDIR ACAO DO JOGADOR
+					int acao = in.nextInt();
+					switch(acao){
+						case 0:
+							if(!player.hit(croupier));{
+								//TODO FAZ ALGO
+								
+							}
+							player.mostraJogo();
+							System.out.println(player.getPontos());
+							break;
+						//TODO FAZER OUTRAS AÇÕES
+					}
+					
+				}
+				
 			}
 		}
 	}
 
-	private void mostraJogo() {
-		for (Player jogador : listaJogadores) {
-			System.out.println("Jogador: '" + jogador.getNome() + "." ); 
-			//TODO definir como mostrar na tela
-		}
+	public void fimRodada(){
+		//TODO define o fim da rodada, zera as apostas, remove as cartas das mãos dos jogadores
+		
+	}
 
-	}
-	
-	private void daCartaPara(Player player){
-		if (croupier.temCartas()) player.hit(croupier.daCarta());
-		else cartasAcabaram();
-	}
-	
-	private void cartasAcabaram() {
-		// TODO tratar quando não existirem mais cartas, mostrar na tela erro, ou na interface
-
-	}
 
 	
 

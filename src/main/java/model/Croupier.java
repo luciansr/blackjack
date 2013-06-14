@@ -1,9 +1,8 @@
 package main.java.model;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Stack;
 
-import main.java.enums.Acao;
 import main.java.enums.Naipe;
 import main.java.enums.TipoDeCarta;
 
@@ -11,7 +10,7 @@ import main.java.enums.TipoDeCarta;
 public final class Croupier extends Player {
 	private static Croupier INSTANCE = null;
 	
-	private ArrayList<Carta> cartasDosBaralhos;
+	private Stack<Carta> cartasDosBaralhos;
 	private int numeroBaralhos;
 
 	private Croupier(String nome, int dinheiro, int numeroBaralhos) {
@@ -19,11 +18,11 @@ public final class Croupier extends Player {
 		
 		this.numeroBaralhos = numeroBaralhos;
 		
-		cartasDosBaralhos = new ArrayList<Carta>();
+		cartasDosBaralhos = new Stack<Carta>();
 		iniciaCartas();
 	}
 	
-	public ArrayList<Carta> getBaralho () {
+	public Stack<Carta> getBaralho () {
 		return cartasDosBaralhos;
 	}
 	
@@ -38,9 +37,9 @@ public final class Croupier extends Player {
 		}
 		
 		//embaralha
-		//Collections.shuffle(cartasDosBaralhos);
-//		Collections.shuffle(cartasDosBaralhos);
-//		Collections.shuffle(cartasDosBaralhos);
+		Collections.shuffle(cartasDosBaralhos);
+		Collections.shuffle(cartasDosBaralhos);
+		Collections.shuffle(cartasDosBaralhos);
 	}
 
 	public static synchronized Croupier getInstance(String nome, int dinheiro, int numeroBaralhos){
@@ -52,19 +51,19 @@ public final class Croupier extends Player {
         return INSTANCE;
     }
 
-	@Override
-	public Acao play() {
-		return null;
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	public Carta daCarta() {
-		return cartasDosBaralhos.remove(0);
+		return getBaralho().pop();
 	}
 
 	public boolean temCartas() {
 		return !cartasDosBaralhos.isEmpty();
+	}
+
+	public void cartasAcabaram() {
+		// TODO tratar quando não existirem mais cartas, acabando o jogo
+		
 	}
 
 }
