@@ -17,7 +17,7 @@ public class Main {
 	
 	public static void main(String[] args) { 
 
-		BlackJackView view = new BlackJackView();
+		BlackJackView view = new BlackJackView(); /*
 		Croupier croupier = Croupier.getInstance("Croupier", DINHEIRO, 2);
 
 		
@@ -29,7 +29,8 @@ public class Main {
 		
 		BlackJackController BJController = BlackJackController.getInstance(croupier, listaJogadores, view);
 		
-		BJController.start();
+		BJController.start();                 */
 		
+		view.setVisible(true);	
 	}
 }
