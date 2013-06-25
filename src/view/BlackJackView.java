@@ -23,12 +23,13 @@ import java.awt.event.MouseEvent;
 public class BlackJackView extends JFrame {
 	
 	Object semaphore = new Object();
-	private Semaphore semaphoreComandos;
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private boolean jogoAtivo = true;
 
 	public ArrayList<Acao> listaDeComandos = new ArrayList<Acao>();
 
@@ -43,23 +44,29 @@ public class BlackJackView extends JFrame {
 	private JLabel buttonDoubleDown = new JLabel();
 	private JLabel buttonStand = new JLabel();
 	private JLabel buttonHit = new JLabel();
+	
+	BufferedImage imagemComBotoes = null;
+	JLabel labelImagemComBotoes = null;
+	
+	BufferedImage imagemSemBotoes = null;
+	JLabel labelImagemSemBotoes = null;
 
 	/**
 	 * Launch the application.
 	 * Use only for debugging, BlackJackView must be created inside BlackJackController.
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					BlackJackView frame = new BlackJackView(null);
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					BlackJackView frame = new BlackJackView(null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the frame.
@@ -87,15 +94,17 @@ public class BlackJackView extends JFrame {
 		contentPane.setLayout(null);
 		panelGameView.setLayout(null);
 		
-		BufferedImage myPicture = null;
+
 		try {
-			myPicture = ImageIO.read(new File("src/images/layV2wbutton.jpg"));
+			imagemComBotoes = ImageIO.read(new File("src/images/layV2wbutton.jpg"));
+			imagemSemBotoes = ImageIO.read(new File("src/images/layV2.jpg"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		JLabel picLabel = new JLabel(new ImageIcon(myPicture));	
+		labelImagemComBotoes = new JLabel(new ImageIcon(imagemComBotoes));
+		labelImagemSemBotoes = new JLabel(new ImageIcon(imagemSemBotoes));	
 		
 		setResizable(false);
 		setContentPane(contentPane);
@@ -107,16 +116,19 @@ public class BlackJackView extends JFrame {
 		buttonHit.setBounds(0, 0, 120, 50);
 		
 		panelGameView.setBounds(0, 0, 1200, 750);
-		picLabel.setBounds(0, 0, 1200, 750);
+		labelImagemComBotoes.setBounds(0, 0, 1200, 750);
+		labelImagemSemBotoes.setBounds(0, 0, 1200, 750);
 
 		panelGameView.add(buttonSurrender);
 		panelGameView.add(buttonDoubleDown);
 		panelGameView.add(buttonStand);
 		panelGameView.add(buttonHit);
-		panelGameView.add(picLabel);
+		panelGameView.add(labelImagemComBotoes);
+		panelGameView.add(labelImagemSemBotoes);
 		contentPane.add(panelGameView);
 
-		picLabel.setLocation(0, 0);
+		labelImagemComBotoes.setLocation(0, 0);
+		labelImagemSemBotoes.setLocation(0, 0);
 		panelGameView.setLocation(0, 0);
 		buttonSurrender.setLocation(1025, 130);
 		buttonDoubleDown.setLocation(1025, 195);
@@ -130,8 +142,31 @@ public class BlackJackView extends JFrame {
 		mapaAcoes.put("Stand", Acao.STAND);
 		mapaAcoes.put("Hit", Acao.HIT);
 
+		changeToWaitPlayerGameView();
 	}
 	
+	private void changeToWaitPlayerGameView() {
+		labelImagemComBotoes.setVisible(true);
+		labelImagemSemBotoes.setVisible(false);
+		
+		buttonSurrender.setVisible(true);
+		buttonDoubleDown.setVisible(true);		
+		buttonStand.setVisible(true);
+		buttonHit.setVisible(true);
+		
+	}
+	
+	private void changeToNormalGameView() {
+		labelImagemComBotoes.setVisible(false);
+		labelImagemSemBotoes.setVisible(true);
+		
+		buttonSurrender.setVisible(false);
+		buttonDoubleDown.setVisible(false);		
+		buttonStand.setVisible(false);
+		buttonHit.setVisible(false);
+		
+	}
+
 	private MouseAdapter buttonMouseListener() {
 		return new MouseAdapter() {
 			
@@ -143,11 +178,16 @@ public class BlackJackView extends JFrame {
 				System.out.println(nomeBotao);
 
 				//System.out.println("teste");
+				changeToNormalGameView();
 
 				super.mouseClicked(e);
 			}
 		};
 	}
-	
+
+	public boolean isJogoAtivo() {
+		return jogoAtivo;
+	}
+
 
 }

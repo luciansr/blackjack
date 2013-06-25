@@ -2,7 +2,6 @@ package main.java.blackjack;
 
 
 import java.util.ArrayList;
-import java.util.concurrent.Semaphore;
 
 import view.BlackJackView;
 
@@ -18,10 +17,7 @@ public class Main {
 	
 	public static void main(String[] args) { 
 		Croupier croupier = Croupier.getInstance("Croupier", DINHEIRO, 2);
-		
-		Semaphore sem = new Semaphore(0);
 
-		
 		ArrayList<Player> listaJogadores = new ArrayList<Player>();
 		
 		listaJogadores.add(new Agente("AgenteDesenteligente1", DINHEIRO));
