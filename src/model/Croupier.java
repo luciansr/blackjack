@@ -30,10 +30,11 @@ public final class Croupier extends Player {
 			for(TipoDeCarta tipo : TipoDeCarta.values()) {
 				for(Naipe naipe : Naipe.values()) {
 					cartasDosBaralhos.add(new Carta(tipo, naipe));
+
 				}
 			}
 		}
-		
+
 		//embaralha
 		Collections.shuffle(cartasDosBaralhos);
 		Collections.shuffle(cartasDosBaralhos);
