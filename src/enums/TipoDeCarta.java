@@ -34,4 +34,25 @@ public enum TipoDeCarta {
 		}
 		
 	}
+	
+	public String toStringAbreviado() {
+		switch (this) {
+		case REI: 		return "K";
+		case RAINHA: 	return "Q";
+		case VALETE: 	return "J";
+		case NOVE: 		return "9";
+		case OITO:	 	return "8";
+		case SETE: 		return "7";
+		case SEIS: 		return "6";
+		case CINCO: 	return "5";
+		case QUATRO: 	return "4";
+		case TRES: 		return "3";
+		case DOIS: 		return "2";
+		case AS: 		return "A";
+
+		default: 		return null;
+			
+		}
+		
+	}
 }

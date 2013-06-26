@@ -32,4 +32,9 @@ public class Carta {
 	public String toString(){
 		return getTipo().toString() + " "+ getNaipe();
 	}
+	
+	public String getNomedaImagem(){
+		String nome = getTipo().toStringAbreviado() +  getNaipe().toStringAbreviado() + ".gif";	
+		return nome;
+	}
 }

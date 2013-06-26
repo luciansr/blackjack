@@ -41,7 +41,7 @@ public final class BlackJackController {
 	
 	public void start() { 
 		view.setVisible(true);
-		/*
+		
 		while(croupier.getBaralho().size() != 0 ){ //TODO, MODIFICAR QUANDO ACABA O JOGO
 
 			//RECEBE AS CARTAS NO COMEÇO DE CADA RODADA
@@ -73,10 +73,10 @@ public final class BlackJackController {
 				}
 				
 			}
-		}*/
+		}
 		
 		while(view.isJogoAtivo()) {
-			System.out.println("teste");
+			//System.out.println("teste");
 			
 			try {
 				Thread.sleep(10);
