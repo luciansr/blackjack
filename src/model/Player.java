@@ -109,6 +109,7 @@ public abstract class Player {
 			System.out.println("Jogador: " + getNome() + "." );
 			for (Carta carta : cartasNaMao) {
 				System.out.println(carta);
+				System.out.println(carta.getNomedaImagem());
 			}
 			
 			//TODO definir como mostrar na tela

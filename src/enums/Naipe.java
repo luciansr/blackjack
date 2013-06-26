@@ -16,4 +16,17 @@ public enum Naipe {
 		}
 		
 	}
+	
+	public String toStringAbreviado() {
+		switch (this) {
+		case OURO: 		return "D";
+		case PAUS: 		return "C";
+		case ESPADA: 	return "S";
+		case COPAS: 	return "H";
+
+		default: 		return null;
+			
+		}
+		
+	}
 }
